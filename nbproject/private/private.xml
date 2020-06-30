@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/src/java/Controllers/DevolverPrestamo.java</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/web/prestar.xhtml</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/web/editarLibro.xhtml</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/web/index.xhtml</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/src/java/Controllers/ActualizarLibro.java</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/src/java/Controllers/ListarPrestamos.java</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/src/java/Services/ServicioLibro.java</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/web/librosprestados.xhtml</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/web/eliminarlibro.xhtml</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/web/registrar.xhtml</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/src/java/Controllers/PrestamoLibro.java</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/src/java/Controllers/RegistrarLibro.java</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/web/devolverlibro.xhtml</file>
+            <file>file:/C:/Users/Jairo/Documents/NetBeansProjects/GestorBiblioteca/src/java/Controllers/EliminarLibro.java</file>
+        </group>
+    </open-files>
+</project-private>

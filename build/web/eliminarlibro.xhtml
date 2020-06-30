@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
+        <title>Eliminar libro</title>
+        <style>
+            .formulario{
+                width:1100px;height:600px;
+                background:#e6e6e6;
+                border-radius:8px;
+                box-shadow:0 0 40px -10px #000;
+                margin:calc(50vh - 220px) auto;
+                max-width:calc(100vw - 40px);
+                box-sizing:border-box;
+                font-family:'Segoe UI',sans-serif;
+                position:relative;
+                top:2px;
+                margin-top: 3px;
+                margin-bottom: 0;
+                background-color: appworkspace;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form> 
+            <p:growl id="messages"/>
+
+            <p:menubar class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                <p:menuitem value="Biblioteca" url="http://localhost:8080/GestorBiblioteca/faces/index.xhtml"/>
+                <p:menuitem value="Registrar Libros" url="http://localhost:8080/GestorBiblioteca/faces/prestar.xhtml"/>
+                <p:menuitem value="Prestar Libros" url="http://localhost:8080/GestorBiblioteca/faces/registrar.xhtml"/>
+                <p:menuitem value="Libros Prestados" url="http://localhost:8080/GestorBiblioteca/faces/librosprestados.xhtml" />
+                <p:menuitem value="Historial de Prestamos" url="http://localhost:8080/GestorBiblioteca/faces/historialprestamos.xhtml" />
+            </p:menubar>
+        </h:form>
+
+        <div class="container-fluid mt-0 formulario">
+            <h:form class="mt-0 pt-0">
+                <div class="container p-1">
+
+                    <h3 class="display-4 pt-0 text-center mb-0 pb-0" style="font-size: 2.5rem">Datos del Libro</h3>
+
+                    <fieldset class="border border-primary m-0 pl-2 pr-2 pb-2 pt-0 rounded">
+                        <legend>Eliminar Libro</legend>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <!--Codigo de registro-->
+                                <h:outputLabel for="codigo" value="Codigo Registro:"/>
+                                <h:inputText id="codigo" value="#{eliminarLibro.libroE.codigoRegistro}" class="form-control" disabled="True"/>
+
+                                <!--ISBN-->
+                                <h:outputLabel for="ISBN" value="Codigo ISBN:" />
+                                <h:inputText id="ISBN" value="#{eliminarLibro.libroE.ISBN}" class="form-control" disabled="True"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Titulo del libro-->
+                                <h:outputLabel for="Titulo" value="Titulo del libro:" />
+                                <h:inputText id="Titulo" value="#{eliminarLibro.libroE.nombreLibro}" class="form-control" disabled="True"/>
+
+                                <!--Autor-->
+                                <h:outputLabel for="Autor" value="Autor:" />
+                                <h:inputText id="Autor" value="#{eliminarLibro.libroE.autor}" class="form-control" disabled="True"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Pais-->
+                                <h:outputLabel for="Pais" value="País:" />
+                                <h:inputText id="Pais" value="#{eliminarLibro.libroE.pais}" class="form-control" disabled="True"/>
+
+                                <!--Numero de paginas-->
+                                <h:outputLabel for="NumPag" value="Numero de páginas:" />
+                                <h:inputText id="NumPag" value="#{eliminarLibro.libroE.numeroPaginas}" class="form-control" disabled="True"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Editorial-->
+                                <h:outputLabel for="Editorial" value="Editorial:" />
+                                <h:inputText id="Editorial" value="#{eliminarLibro.libroE.editorial}" class="form-control" disabled="True"/>
+
+                                <!--Fecha Publicacion-->
+                                <h:outputLabel for="FechaP" value="Fecha de publicación:" />
+                                <h:inputText id="FechaP" value="#{eliminarLibro.libroE.fechaPublicacion}" class="form-control" disabled="True"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Idioma-->
+                                <h:outputLabel for="Idioma" value="Idioma:" />
+                                <h:inputText id="Idioma" value="#{eliminarLibro.libroE.idioma}" class="form-control" disabled="True"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Estado-->
+                                <h:outputLabel for="Estado" value="Estado:" />
+                                <h:inputText id="Estado" value="#{eliminarLibro.libroE.estadoPrestamo}" class="form-control" disabled="True"/>
+                            </div>
+
+                        </div>
+                        <div class="col-12">
+                            <!--Boton de accion-->
+                            <h:commandButton value="Eliminar" class="btn btn-success w-100 mt-0 mb-2" action="#{eliminarLibro.EliminarLibro}"/>
+
+                            <h:button outcome="index" value="Cancelar" class="btn btn-danger w-100"/>
+                        </div>
+                    </fieldset>
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>
