@@ -58,7 +58,9 @@ public class ServicioPrestamo {
 
         librosList = servicioLibro.getLibros();
         for (Libro libro : librosList) {
-            libros.add(libro.getNombreLibro());
+            if(libro.getEstadoPrestamo().equals("Disponible")){
+                libros.add(libro.getNombreLibro());
+            }
         }
         return libros;
     }
@@ -95,6 +97,25 @@ public class ServicioPrestamo {
             }
         }
         return objetoPrestamo;
+    }
+    
+    public Prestamo ObtenerPrestamoCoLibro(String codLibro) {
+        Prestamo objetoPrestamo = new Prestamo();
+        for (int i = 0; i < prestamos.size(); i++) {
+            if (prestamos.get(i).getCodLibro().equals(codLibro)) {
+                objetoPrestamo = prestamos.get(i);
+            }
+        }
+        return objetoPrestamo;
+    }
+    public Prestamo ObtenerHisCoLibro(String codLibro) {
+        Prestamo objetoHistorial = new Prestamo();
+        for (int i = 0; i < historialPrestamos.size(); i++) {
+            if (historialPrestamos.get(i).getCodLibro().equals(codLibro)) {
+                objetoHistorial = historialPrestamos.get(i);
+            }
+        }
+        return objetoHistorial;
     }
 
     public void DevolverLibro(Libro libro, Prestamo prestamo) {

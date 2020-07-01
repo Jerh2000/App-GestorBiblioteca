@@ -45,8 +45,6 @@ public class EliminarLibro implements Serializable {
     //metodo que me llama a un servicio de la clase ServicioLibro la cual me permite eliminar registros de libros
     public void EliminarLibro() throws IOException{
         servicioLibro.Eliminar(libroE);
-        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-        context.redirect("index.xhtml");
     }
 
     public Libro getLibroE() {

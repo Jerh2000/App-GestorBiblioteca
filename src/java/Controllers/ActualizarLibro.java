@@ -2,17 +2,17 @@ package Controllers;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import Model.Libro;
+import Model.Prestamo;
 import Services.ServicioLibro;
+import Services.ServicioPrestamo;
+
 
 @Named
 @ViewScoped
@@ -22,18 +22,24 @@ public class ActualizarLibro implements Serializable {
 
     @EJB
     private ServicioLibro servicioLibro;
-
-    private Libro libroA;
+    @EJB
+    private ServicioPrestamo servicioPrestamo;
     
+    private Libro libroA;
+    private Prestamo prestamo;
+    private Prestamo historial;
+
     @PostConstruct
-    public void init(){
+    public void init() {
         FacesContext fc = FacesContext.getCurrentInstance();
         String codRegistro = fc.getExternalContext().getRequestParameterMap().get("codRegistro");
-        libroA = servicioLibro.ObtenerLibro(codRegistro); 
+        libroA = servicioLibro.ObtenerLibro(codRegistro);
+        prestamo = servicioPrestamo.ObtenerPrestamoCoLibro(libroA.getISBN());
+        historial = servicioPrestamo.ObtenerHisCoLibro(libroA.getISBN());
     }
 
-    public void ActualizarLibro() throws IOException{
-        servicioLibro.Actualizar(libroA);
+    public void ActualizarLibro() throws IOException {
+            servicioLibro.Actualizar(libroA,prestamo,historial);
     }
 
     public Libro getLibroA() {
@@ -43,6 +49,5 @@ public class ActualizarLibro implements Serializable {
     public void setLibroA(Libro libroA) {
         this.libroA = libroA;
     }
-    
-    
+
 }

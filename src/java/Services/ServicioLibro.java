@@ -15,6 +15,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 
 import Model.Libro;
+import Model.Prestamo;
 import java.io.IOException;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -50,15 +51,15 @@ public class ServicioLibro {
     }
 
     //Metodo que me permite actualizar o modificar un libro --Esta inconcluso aun
-    public void Actualizar(Libro libro) throws IOException {
+    public void Actualizar(Libro libro, Prestamo prestamo, Prestamo historial) throws IOException {
         boolean duplicado = true;
         String codISBN = "";
         for (int i = 0; i < libros.size(); i++) {
-            if(libros.get(i).getCodigoRegistro().equals(libro.getCodigoRegistro())){
+            if (libros.get(i).getCodigoRegistro().equals(libro.getCodigoRegistro())) {
                 codISBN = libros.get(i).getISBN();
             }
         }
-        
+
         for (int i = 0; i < libros.size(); i++) {
             if (libros.get(i).getISBN().equals(libro.getISBN()) && codISBN != libros.get(i).getISBN()) {
                 RequestContext req = RequestContext.getCurrentInstance();
@@ -77,15 +78,25 @@ public class ServicioLibro {
             libro.setIdioma(libro.getIdioma());
             libro.setFechaPublicacion(libro.getFechaPublicacion());
             libro.setEstadoPrestamo(libro.getEstadoPrestamo());
+            prestamo.setCodLibro(libro.getISBN());
+            prestamo.setNomLibro(libro.getNombreLibro());
+            historial.setCodLibro(libro.getISBN());
+            historial.setNomLibro(libro.getNombreLibro());
             ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
             context.redirect("index.xhtml");
         }
-
     }
 
     //Meotodo para eliminar un registro de un libro, es llamado desde el Bean EliminarLibro
-    public void Eliminar(Libro libroEliminar) {
-        libros.remove(libroEliminar);
+    public void Eliminar(Libro libroEliminar) throws IOException {
+        if (libroEliminar.getEstadoPrestamo().equals("No disponible")) {
+            RequestContext req = RequestContext.getCurrentInstance();
+            req.execute("PF('LibroPrestado').show();");
+        } else {
+            libros.remove(libroEliminar);
+            ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+            context.redirect("index.xhtml");
+        }
     }
 
     //Este metodo me permite obtener un objeto o registro de libro ya sea para eliminarlo o modificarlo
