@@ -49,8 +49,8 @@
                         <div class="row">
                             <div class="col-12 from-group">
                                 <!--Nombre libro-->
-                                <h:outputLabel for="NombreLibro" value="Nombre del Libro"/>
-                                <h:selectOneMenu id="NombreLibro" value="#{prestamoLibro.prestamo.nomLibro}" class="form-control" required="true"><!---->
+                                <h:outputLabel for="NombreLibro" value="Libros disponibles"/>
+                                <h:selectOneMenu id="NombreLibro" value="#{prestamoLibro.prestamo.nomLibro}" class="form-control" required="true" requiredMessage="Se requiere libro"><!---->
                                     <f:selectItem itemValue="Nothing" itemLabel="--Seleccione un idioma--" itemDisabled="True"/>
                                     <f:selectItems value="#{prestamoLibro.libros}"/><!---->
                                 </h:selectOneMenu>
@@ -58,11 +58,11 @@
                             <div class="col-6 form-group">
                                 <!--Id Usuario-->
                                 <h:outputLabel for="IdentificacionUsuario" value="Identificacion del usuario:" />
-                                <h:inputText id="IdentificacionUsuario" value="#{prestamoLibro.prestamo.idPrestador}" class="form-control" required="true"/>
+                                <h:inputText id="IdentificacionUsuario" value="#{prestamoLibro.prestamo.idPrestador}" class="form-control" required="true" requiredMessage="Se requiere identificacion de usuario"/>
 
                                 <!--Nombre usuario-->
                                 <h:outputLabel for="NombreUsuario" value="Nombre del usuario:" />
-                                <h:inputText id="NombreUsuario" value="#{prestamoLibro.prestamo.nombrePrestador}" class="form-control" required="true"/>
+                                <h:inputText id="NombreUsuario" value="#{prestamoLibro.prestamo.nombrePrestador}" class="form-control" required="true" requiredMessage="Se requiere nombre de usuario"/>
 
                             </div>
 
@@ -70,24 +70,24 @@
 
                                 <!--Correo-->
                                 <h:outputLabel for="Correo" value="Correo del usuario:" />
-                                <h:inputText id="Correo" value="#{prestamoLibro.prestamo.correo}" class="form-control" required="true"/>
+                                <h:inputText id="Correo" value="#{prestamoLibro.prestamo.correo}" class="form-control" required="true" requiredMessage="Se requiere correo de usuario"/>
 
                                 <!--Telefono-->
                                 <h:outputLabel for="Telefono" value="Telefono del usuario:" />
-                                <h:inputText id="Telefono" value="#{prestamoLibro.prestamo.telefono}" class="form-control" required="true"/>
+                                <h:inputText id="Telefono" value="#{prestamoLibro.prestamo.telefono}" class="form-control" required="true" requiredMessage="Se requiere telefono de usuario"/>
 
                             </div>
 
                             <div class="col-6 form-group">
                                 <!--Fecha devolucion-->
                                 <h:outputLabel for="FechaDevolucion" value="Fecha de devolucion:" />
-                                <h:inputText id="FechaDevolucion" value="#{prestamoLibro.prestamo.fechaDevolucion}" class="form-control" required="true"/>
+                                <h:inputText id="FechaDevolucion" value="#{prestamoLibro.prestamo.fechaDevolucion}" class="form-control" required="true" requiredMessage="Se requiere una fecha de devolución"/>
                             </div>
 
                             <div class="col-6 form-group">
                                 <!--Fecha prestamo-->
                                 <h:outputLabel for="FechaPrestamo" value="Fecha de prestamo:" />
-                                <h:inputText id="FechaPrestamo" value="#{prestamoLibro.prestamo.fechaPrestamo}" class="form-control" required="true"/>
+                                <h:inputText id="FechaPrestamo" value="#{prestamoLibro.prestamo.fechaPrestamo}" class="form-control" required="true" requiredMessage="Se requiere una fecha de prestamo"/>
                             </div>
 
                         </div>

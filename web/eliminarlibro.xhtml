@@ -40,6 +40,9 @@
 
         <div class="container-fluid mt-0 formulario">
             <h:form class="mt-0 pt-0">
+                <p:dialog id="Validacion" widgetVar="LibroPrestado" header="LIBRO PRESTADO" modal="true">No se puede elimnar este libro porque se encuentra prestado.
+                    <p:commandButton value="Cerrar" onclick="PF('LibroPrestado').hide();"></p:commandButton>
+                </p:dialog>
                 <div class="container p-1">
 
                     <h3 class="display-4 pt-0 text-center mb-0 pb-0" style="font-size: 2.5rem">Datos del Libro</h3>
@@ -102,7 +105,7 @@
                         </div>
                         <div class="col-12">
                             <!--Boton de accion-->
-                            <h:commandButton value="Eliminar" class="btn btn-success w-100 mt-0 mb-2" action="#{eliminarLibro.EliminarLibro}"/>
+                            <h:commandButton value="Eliminar" class="btn btn-success w-100 mt-0 mb-2" actionListener="#{eliminarLibro.EliminarLibro}"/>
 
                             <h:button outcome="index" value="Cancelar" class="btn btn-danger w-100"/>
                         </div>

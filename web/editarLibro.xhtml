@@ -40,6 +40,9 @@
 
         <div class="container-fluid mt-0 formulario">
             <h:form class="mt-0 pt-0">
+                <p:dialog id="ValidacionP" widgetVar="ValidadorPrestado" header="LIBRO PRESTADO" modal="true">No se puede editar un libro que este prestado o no disponible
+                    <p:commandButton value="Cerrar" onclick="PF('ValidadorPrestado').hide();"></p:commandButton>
+                </p:dialog>
                 <p:dialog id="Validacion" widgetVar="ValidadorE" header="LIBRO REGISTRADO" modal="true">Ya hay un libro con ese codigo ISBN
                     <p:commandButton value="Cerrar" onclick="PF('Validador').hide();"></p:commandButton>
                 </p:dialog>
